@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import Header from './Header';
-import Technologies from './Technologies'
-import Footer from "./Footer";
 
 const App = () => {
     return (
         <div>
-            <Header />
-            <Technologies />
-            <Footer />
+            <header>
+                <img src='https://i.pinimg.com/originals/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg' alt="img"/>
+            </header>
+            <nav></nav>
+            <div></div>
         </div>
     );
 }
