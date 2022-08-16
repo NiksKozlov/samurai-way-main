@@ -5,10 +5,13 @@ const App = () => {
     return (
         <div>
             <header>
-                <img src='https://i.pinimg.com/originals/0d/cf/b5/0dcfb548989afdf22afff75e2a46a508.jpg' alt="img"/>
+                <img src='https://i.pinimg.com/originals/30/3b/0b/303b0bdf4e775d09711a9a3acb951311.png' alt="img"/>
             </header>
-            <nav></nav>
-            <div></div>
+            <nav>
+                <div>Profile</div>
+                <div>Messages</div>
+            </nav>
+            <div>Main content</div>
         </div>
     );
 }
