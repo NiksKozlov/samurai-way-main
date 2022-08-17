@@ -1,6 +1,7 @@
 .app-wrapper {
+    margin: auto;
     display: grid;
-
+    width: 1200px;
     grid-template-areas:
     "h h"
     "n c";
@@ -21,7 +22,7 @@
 
 .nav {
     grid-area: n;
-    background-color: green;
+    background-color: burlywood;
 }
 
 .content {
