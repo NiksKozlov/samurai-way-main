@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Header.module.css';
+import s from './Header.module.css';
 
 const Header = () => {
     return (
-        <header className={styles.header}>
+        <header className={s.header}>
             <img src='https://profedu.by/wp-content/uploads/2021/10/cropped-ripo-favicon.png'
                  alt='img'/>
         </header>
