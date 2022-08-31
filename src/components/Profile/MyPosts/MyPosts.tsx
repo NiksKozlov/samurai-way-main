@@ -23,6 +23,7 @@ const MyPosts = () => {
             <div className={s.posts}>
                 <Post message={postsData[0].message} likesCount={postsData[0].likesCount} />
                 <Post message={postsData[1].message} likesCount={postsData[1].likesCount} />
+                <Post message={postsData[2].message} likesCount={postsData[2].likesCount} />
             </div>
         </div>
     );
