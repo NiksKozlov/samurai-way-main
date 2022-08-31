@@ -5,8 +5,8 @@ import Post from "./Post/Post";
 const MyPosts = () => {
 
     let postsData = [
-        {id: "1", message: "Hi! How are you?", likesCount: "15"},
-        {id: "2", message: "It's my first post!!!", likesCount: "20"},
+        {id: 1, message: "Hi! How are you?", likesCount: "15"},
+        {id: 2, message: "It's my first post!!!", likesCount: "20"},
     ]
 
     return (
