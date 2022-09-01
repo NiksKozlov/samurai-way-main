@@ -13,7 +13,6 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {MessagesType} from "./components/Dialogs/Message/Message";
 
 
-
 type PropsType = {
     dialogs: Array<DialogItemType>
     messages: Array<MessagesType>
@@ -30,9 +29,9 @@ const App: React.FC<PropsType> = (props) => {
                     <Route path="/dialogs"
                            render={() => <Dialogs dialogs={props.dialogs} messages={props.messages} />} />
                     <Route path="/profile" render={() => <Profile posts={props.posts} />} />
-                    <Route path="/news" component={News} />
-                    <Route path="/music" component={Music} />
-                    <Route path="/settings" component={Settings} />
+                    <Route path="/news" render={() => <News />} />
+                    <Route path="/music" render={() => <Music />} />
+                    <Route path="/settings" render={() => <Settings />} />
                 </div>
             </div>
         </BrowserRouter>
