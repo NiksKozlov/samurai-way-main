@@ -1,17 +1,12 @@
 import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem, {DialogItemType} from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
+import Message, {MessagesType} from "./Message/Message";
 
 
 export type DialogsPropsType = {
     dialogs: Array<DialogItemType>
     messages: Array<MessagesType>
-}
-
-export type MessagesType = {
-    id: number
-    userMessage: string
 }
 
 
