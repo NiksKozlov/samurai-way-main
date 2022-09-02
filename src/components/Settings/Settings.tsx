@@ -1,7 +1,9 @@
 import React from "react";
 import s from'./Settings.module.css'
 
-const Settings = () => {
+type SettingsPropsType = {}
+
+const Settings: React.FC<SettingsPropsType> = (props) => {
     return (
         <div>
             Settings

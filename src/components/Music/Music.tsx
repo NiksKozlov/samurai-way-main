@@ -1,7 +1,9 @@
 import React from 'react';
 import s from './Music.module.css'
 
-const Music = () => {
+type MusicPropsType = {}
+
+const Music: React.FC<MusicPropsType> = (props) => {
     return (
         <div>
             Music

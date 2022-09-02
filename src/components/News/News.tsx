@@ -1,7 +1,9 @@
 import React from "react";
 import s from "./News.module.css"
 
-const News = () => {
+type NewsPropsType = {}
+
+const News: React.FC<NewsPropsType> = (props) => {
     return (
         <div>
             News
