@@ -11,14 +11,11 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import state from "./redux/state";
 
 
-type PropsType = {}
+type PropsType = {
+    state: typeof state
+}
 
 const App: React.FC<PropsType> = (props) => {
-    let dialogs = state.dialogsPage.dialogs
-    let messages = state.dialogsPage.messages
-    let posts = state.profilePage.posts
-
-
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -27,11 +24,11 @@ const App: React.FC<PropsType> = (props) => {
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
                            render={() => <Dialogs
-                               dialogs={dialogs}
-                               messages={messages} />} />
+                               dialogs={props.state.dialogsPage.dialogs}
+                               messages={props.state.dialogsPage.messages} />} />
                     <Route path="/profile"
                            render={() => <Profile
-                               posts={posts} />} />
+                               posts={props.state.profilePage.posts} />} />
                     <Route path="/news" render={() => <News />} />
                     <Route path="/music" render={() => <Music />} />
                     <Route path="/settings" render={() => <Settings />} />
