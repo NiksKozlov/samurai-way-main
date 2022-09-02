@@ -8,11 +8,12 @@ import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Dialogs from "./components/Dialogs/Dialogs";
-import state from "./redux/state";
+import {RootStateType} from "./redux/state";
+import Friends from "./components/Friends/Friends";
 
 
 type PropsType = {
-    state: typeof state
+    state: RootStateType
 }
 
 const App: React.FC<PropsType> = (props) => {
@@ -23,15 +24,13 @@ const App: React.FC<PropsType> = (props) => {
                 <Navbar />
                 <div className="app-wrapper-content">
                     <Route path="/dialogs"
-                           render={() => <Dialogs
-                               dialogs={props.state.dialogsPage.dialogs}
-                               messages={props.state.dialogsPage.messages} />} />
+                           render={() => <Dialogs state={props.state.dialogsPage} />} />
                     <Route path="/profile"
-                           render={() => <Profile
-                               posts={props.state.profilePage.posts} />} />
+                           render={() => <Profile state={props.state.profilePage} />} />
                     <Route path="/news" render={() => <News />} />
                     <Route path="/music" render={() => <Music />} />
                     <Route path="/settings" render={() => <Settings />} />
+                    <Route path="/friends" render={() => <Friends />} />
                 </div>
             </div>
         </BrowserRouter>

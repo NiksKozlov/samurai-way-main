@@ -14,23 +14,23 @@ export type PostType = {
     likesCount: string
 }
 
-type ProfilePageType = {
+export type ProfilePageType = {
     posts: Array<PostType>
 }
 
-type DialogsPageType = {
+export type DialogsPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
 }
 
 
-type RootStateType = {
+export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
     sidebar: Sidebar
 }
 
-type Sidebar = {}
+export type Sidebar = {}
 
 let state: RootStateType = {
     profilePage: {

@@ -12,3 +12,7 @@
 .item a.activeLink {
     color: gold;
 }
+.img {
+    width: 30px;
+    padding: 1px;
+}
