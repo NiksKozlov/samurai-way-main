@@ -1,11 +1,11 @@
-import state, {subscribe} from './redux/state';
+import state, {RootStateType, subscribe} from './redux/state';
 import {addPost, changeNewPostText} from './redux/state';
 import ReactDOM from 'react-dom';
 import App from './App';
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
-const renderTree = () => {
+const renderTree = (state: RootStateType) => {
     ReactDOM.render(
         <BrowserRouter>
             <App
@@ -17,6 +17,6 @@ const renderTree = () => {
     );
 }
 
-renderTree()
+renderTree(state)
 
 subscribe(renderTree)
