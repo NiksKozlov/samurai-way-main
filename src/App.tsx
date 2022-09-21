@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
@@ -14,12 +14,12 @@ import Friends from './components/Friends/Friends';
 
 type PropsType = {
     state: RootStateType
-    addPost: (postMessage: string) => void
+    addPost: () => void
+    changeNewPostText: (newPost: string) => void
 }
 
 const App: React.FC<PropsType> = (props) => {
     return (
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header />
                 <Navbar />
@@ -28,15 +28,15 @@ const App: React.FC<PropsType> = (props) => {
                            render={() => <Dialogs state={props.state.dialogsPage} />} />
                     <Route path="/profile"
                            render={() => <Profile
-                               state={props.state.profilePage}
-                               addPost={props.addPost} />} />
+                               profilePage={props.state.profilePage}
+                               addPost={props.addPost}
+                               changeNewPostText={props.changeNewPostText}/>} />
                     <Route path="/news" render={() => <News />} />
                     <Route path="/music" render={() => <Music />} />
                     <Route path="/settings" render={() => <Settings />} />
                     <Route path="/friends" render={() => <Friends />} />
                 </div>
             </div>
-        </BrowserRouter>
     );
 }
 
