@@ -1,4 +1,4 @@
-let renderTree = (state: RootStateType) => {}
+let onChange = (state: RootStateType) => {}
 
 export type DialogType = {
     id: number
@@ -73,16 +73,16 @@ export const addPost = () => {
     }
     state.profilePage.posts.push(newPost)
     state.profilePage.newPostText = ''
-    renderTree(state)
+    onChange(state)
 }
 
 export const changeNewPostText = (newText: string) => {
     state.profilePage.newPostText = newText
-    renderTree(state)
+    onChange(state)
 }
 
 export const subscribe = (observer: (state: RootStateType) => void) => {
-    renderTree = observer
+    onChange = observer
 }
 
 export default state;
