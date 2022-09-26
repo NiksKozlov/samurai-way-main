@@ -1,5 +1,3 @@
-let onChange = (state: RootStateType) => {}
-
 export type DialogType = {
     id: number
     name: string
@@ -35,54 +33,69 @@ export type RootStateType = {
 
 export type Sidebar = {}
 
-const state: RootStateType = {
-    profilePage: {
-        posts: [
-            {id: 1, message: 'Hi! How are you?', likesCount: 15},
-            {id: 2, message: 'It\'s my first post!!!', likesCount: 20},
-        ],
-        newPostText: ''
-    },
 
-    dialogsPage: {
-        dialogs: [
-            {id: 1, name: 'Nikita'},
-            {id: 2, name: 'Alina'},
-            {id: 3, name: 'Mark'},
-            {id: 4, name: 'Pavel'},
-            {id: 5, name: 'Viktor'},
-            {id: 6, name: 'Sergei'}
-        ],
-        messages: [
-            {id: 1, message: 'Hi'},
-            {id: 2, message: 'How are you?'},
-            {id: 3, message: 'Yo'},
-            {id: 4, message: 'What\'s up!'},
-            {id: 5, message: 'Yo'}
-        ],
-    },
-
-    sidebar: {}
+export type StoreType = {
+    _state: RootStateType
+    rerenderEntireTree: (state: RootStateType) => void
+    addPost: () => void
+    changeNewPostText: (newText: string) => void
+    subscribe: (observer: (state: RootStateType) => void) => void
+    getState: () => RootStateType
 }
 
-export const addPost = () => {
-    const newPost: PostType = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likesCount: 0
+const store: StoreType = {
+    _state: {
+        profilePage: {
+            posts: [
+                {id: 1, message: 'Hi! How are you?', likesCount: 15},
+                {id: 2, message: 'It\'s my first post!!!', likesCount: 20},
+            ],
+            newPostText: ''
+        },
+
+        dialogsPage: {
+            dialogs: [
+                {id: 1, name: 'Nikita'},
+                {id: 2, name: 'Alina'},
+                {id: 3, name: 'Mark'},
+                {id: 4, name: 'Pavel'},
+                {id: 5, name: 'Viktor'},
+                {id: 6, name: 'Sergei'}
+            ],
+            messages: [
+                {id: 1, message: 'Hi'},
+                {id: 2, message: 'How are you?'},
+                {id: 3, message: 'Yo'},
+                {id: 4, message: 'What\'s up!'},
+                {id: 5, message: 'Yo'}
+            ],
+        },
+
+        sidebar: {}
+    },
+    rerenderEntireTree() {
+        console.log('State changed')
+    },
+    addPost() {
+        const newPost: PostType = {
+            id: 5,
+            message: this._state.profilePage.newPostText,
+            likesCount: 0
+        }
+        this._state.profilePage.posts.push(newPost)
+        this._state.profilePage.newPostText = ''
+        this.rerenderEntireTree(this._state)
+    },
+    changeNewPostText(newText) {
+        this._state.profilePage.newPostText = newText
+        this.rerenderEntireTree(this._state)
+    },
+    subscribe(observer) {
+        this.rerenderEntireTree = observer
+    },
+    getState () {
+        return this._state
     }
-    state.profilePage.posts.push(newPost)
-    state.profilePage.newPostText = ''
-    onChange(state)
 }
 
-export const changeNewPostText = (newText: string) => {
-    state.profilePage.newPostText = newText
-    onChange(state)
-}
-
-export const subscribe = (observer: (state: RootStateType) => void) => {
-    onChange = observer
-}
-
-export default state;
+export default store;
