@@ -36,10 +36,10 @@ export type Sidebar = {}
 
 export type StoreType = {
     _state: RootStateType
-    rerenderEntireTree: (state: RootStateType) => void
+    _callSubscriber: (state: RootStateType) => void
     addPost: () => void
     changeNewPostText: (newText: string) => void
-    subscribe: (observer: (state: RootStateType) => void) => void
+    subscribe: (observer: () => void) => void
     getState: () => RootStateType
 }
 
@@ -73,7 +73,7 @@ const store: StoreType = {
 
         sidebar: {}
     },
-    rerenderEntireTree() {
+    _callSubscriber() {
         console.log('State changed')
     },
     addPost() {
@@ -84,14 +84,14 @@ const store: StoreType = {
         }
         this._state.profilePage.posts.push(newPost)
         this._state.profilePage.newPostText = ''
-        this.rerenderEntireTree(this._state)
+        this._callSubscriber(this._state)
     },
     changeNewPostText(newText) {
         this._state.profilePage.newPostText = newText
-        this.rerenderEntireTree(this._state)
+        this._callSubscriber(this._state)
     },
     subscribe(observer) {
-        this.rerenderEntireTree = observer
+        this._callSubscriber = observer
     },
     getState () {
         return this._state
