@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {ActionTypes, PostType} from '../../../redux/state';
+import {ActionTypes, addPostAC, changeNewPostTextAC, PostType} from '../../../redux/state';
 
 
 type MyPostsPropsType = {
@@ -18,13 +18,13 @@ const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 
     const addPost = () => {
         if (newPostElement.current) {
-            props.dispatch({type: 'ADD-POST'})
+            props.dispatch(addPostAC())
         }
     }
 
     const onPostChange = () => {
         if (newPostElement.current) {
-            props.dispatch({type: 'CHANGE-NEW-POST-TEXT', newText: newPostElement.current.value})
+            props.dispatch(changeNewPostTextAC(newPostElement.current.value))
         }
     }
 

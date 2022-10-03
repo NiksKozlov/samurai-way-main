@@ -33,15 +33,19 @@ export type RootStateType = {
 
 export type Sidebar = {}
 
-export type ActionTypes = AddPostActionType | ChangeNewPostTextActionType
+export type ActionTypes = ReturnType<typeof addPostAC> | ReturnType<typeof changeNewPostTextAC>
 
-type AddPostActionType = {
-    type: 'ADD-POST'
+export const addPostAC = () => {
+    return {
+        type: 'ADD-POST'
+    } as const
 }
 
-type ChangeNewPostTextActionType = {
-    type: 'CHANGE-NEW-POST-TEXT'
-    newText: string
+export const changeNewPostTextAC = (newText: string) => {
+    return {
+        type: 'CHANGE-NEW-POST-TEXT',
+        newText: newText
+    } as const
 }
 
 export type StoreType = {
