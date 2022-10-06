@@ -22,7 +22,7 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
     const dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
     const messagesElements = props.state.messages.map(m => <Message message={m.message} />)
-    const newMessageBody = props.state.newMessageBody
+    const newMessageText = props.state.newMessageText
 
     const onSendMessageClick = () => {
         props.dispatch(sendMessageAC())
@@ -43,7 +43,7 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
                 </div>
                 <div>
                     <div>
-                        <textarea value={newMessageBody}
+                        <textarea value={newMessageText}
                                   onChange={onNewMessageChange}
                                   placeholder='Enter your message'></textarea>
                     </div>

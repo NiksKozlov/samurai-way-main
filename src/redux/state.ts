@@ -22,7 +22,7 @@ export type ProfilePageType = {
 export type DialogsPageType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
-    newMessageBody: string
+    newMessageText: string
 }
 
 
@@ -53,10 +53,10 @@ export const changeNewPostTextAC = (newText: string) => {
     } as const
 }
 
-export const changeNewMessageBodyAC = (body: string) => {
+export const changeNewMessageBodyAC = (newText: string) => {
     return {
         type: 'CHANGE-NEW-MESSAGE-TEXT',
-        body: body
+        newText: newText
     } as const
 }
 
@@ -100,7 +100,7 @@ const store: StoreType = {
                 {id: 4, message: 'What\'s up!'},
                 {id: 5, message: 'Yo'}
             ],
-            newMessageBody: ''
+            newMessageText: ''
         },
 
         sidebar: {}
@@ -131,12 +131,12 @@ const store: StoreType = {
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
         } else if (action.type === 'CHANGE-NEW-MESSAGE-TEXT') {
-            this._state.dialogsPage.newMessageBody = action.body
+            this._state.dialogsPage.newMessageText = action.newText
             this._callSubscriber(this._state)
         } else if (action.type === 'SEND-MESSAGE') {
-            let body = this._state.dialogsPage.newMessageBody
-            this._state.dialogsPage.newMessageBody = ''
-            this._state.dialogsPage.messages.push({id: 6, message: body})
+            let newText = this._state.dialogsPage.newMessageText
+            this._state.dialogsPage.newMessageText = ''
+            this._state.dialogsPage.messages.push({id: 6, message: newText})
             this._callSubscriber(this._state)
         }
     }
