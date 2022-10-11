@@ -35,7 +35,7 @@ const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTyp
     }
 }
 
-export const changeNewMessageBodyAC = (newText: string) => {
+export const changeNewMessageTextAC = (newText: string) => {
     return {
         type: 'CHANGE-NEW-MESSAGE-TEXT',
         newText: newText
