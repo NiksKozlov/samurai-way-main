@@ -2,13 +2,8 @@ import React, {ChangeEvent} from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import {
-    ActionTypes,
-    changeNewMessageBodyAC,
-    changeNewPostTextAC,
-    DialogsPageType,
-    sendMessageAC
-} from '../../redux/state';
+import {ActionTypes, DialogsPageType} from '../../redux/store';
+import {changeNewMessageBodyAC, sendMessageAC} from '../../redux/dialogs-reducer';
 
 
 export type DialogsPropsType = {
@@ -28,8 +23,8 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
         props.dispatch(sendMessageAC())
     }
     const onNewMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        const body = e.target.value
-        props.dispatch(changeNewMessageBodyAC(body))
+        const newText = e.target.value
+        props.dispatch(changeNewMessageBodyAC(newText))
     }
 
     return (
@@ -45,7 +40,7 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
                     <div>
                         <textarea value={newMessageText}
                                   onChange={onNewMessageChange}
-                                  placeholder='Enter your message'></textarea>
+                                  placeholder="Enter your message"></textarea>
                     </div>
                     <div>
                         <button onClick={onSendMessageClick}>Send</button>

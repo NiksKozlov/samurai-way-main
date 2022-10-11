@@ -1,5 +1,5 @@
-import profileReducer from './profile-reducer';
-import dialogsReducer from './dialogs-reducer';
+import profileReducer, {addPostAC, changeNewPostTextAC} from './profile-reducer';
+import dialogsReducer, {changeNewMessageBodyAC, sendMessageAC} from './dialogs-reducer';
 import sidebarReducer from './sidebar-reducer';
 
 export type DialogType = {
@@ -44,31 +44,6 @@ export type ActionTypes =
     | ReturnType<typeof changeNewMessageBodyAC>
     | ReturnType<typeof sendMessageAC>
 
-export const addPostAC = () => {
-    return {
-        type: 'ADD-POST'
-    } as const
-}
-
-export const changeNewPostTextAC = (newText: string) => {
-    return {
-        type: 'CHANGE-NEW-POST-TEXT',
-        newText: newText
-    } as const
-}
-
-export const changeNewMessageBodyAC = (newText: string) => {
-    return {
-        type: 'CHANGE-NEW-MESSAGE-TEXT',
-        newText: newText
-    } as const
-}
-
-export const sendMessageAC = () => {
-    return {
-        type: 'SEND-MESSAGE'
-    } as const
-}
 
 export type StoreType = {
     _state: RootStateType

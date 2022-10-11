@@ -8,7 +8,7 @@ import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Dialogs from './components/Dialogs/Dialogs';
-import {ActionTypes, RootStateType} from './redux/state';
+import {ActionTypes, RootStateType} from './redux/store';
 import Friends from './components/Friends/Friends';
 
 
