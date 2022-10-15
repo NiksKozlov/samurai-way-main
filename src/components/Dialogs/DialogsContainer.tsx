@@ -6,28 +6,6 @@ import {AppStateType} from '../../redux/redux-store';
 import {Dispatch} from 'redux';
 
 
-// export type DialogsContainerPropsType = {}
-//
-//
-// export const DialogsContainer: React.FC<DialogsContainerPropsType> = (props) => {
-//     return (
-//         <StoreContext.Consumer>
-//             {store => {
-//                 const sendMessage = () => {
-//                     store.dispatch(sendMessageAC())
-//                 }
-//
-//                 const changeNewMessageText = (newText: string) => {
-//                     store.dispatch(changeNewMessageTextAC(newText))
-//                 }
-//
-//                 return <Dialogs dialogsPage={store.getState().dialogsPage}
-//                                 changeNewMessageText={changeNewMessageText}
-//                                 sendMessage={sendMessage} />
-//             }}
-//         </StoreContext.Consumer>
-//     )
-// }
 
 type MapStatePropsType = {
     dialogsPage: InitialStateType
