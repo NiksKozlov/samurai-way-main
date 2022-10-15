@@ -20,13 +20,13 @@ const initialState = {
     newMessageText: ''
 }
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTypes) => {
+const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTypes): DialogsPageType => {
     switch (action.type) {
         case 'CHANGE-NEW-MESSAGE-TEXT':
             state.newMessageText = action.newText
             return state;
         case 'SEND-MESSAGE':
-            let newText = state.newMessageText
+            const newText = state.newMessageText
             state.newMessageText = ''
             state.messages.push({id: 6, message: newText})
             return state;
