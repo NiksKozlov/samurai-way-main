@@ -7,14 +7,13 @@ import {Route} from 'react-router-dom';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
-import {ActionTypes, RootStateType} from './redux/store';
 import Friends from './components/Friends/Friends';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
+import {DialogsContainer} from './components/Dialogs/DialogsContainer';
 
 
-type PropsType = {}
+type AppPropsType = {}
 
-const App: React.FC<PropsType> = (props) => {
+const App: React.FC<AppPropsType> = (props) => {
     return (
         <div className="app-wrapper">
             <Header />

@@ -1,5 +1,5 @@
 import React from 'react';
-import dialogsReducer, {changeNewMessageTextAC, sendMessageAC} from './dialogs-reducer';
+import {changeNewMessageTextAC, dialogsReducer, sendMessageAC} from './dialogs-reducer';
 
 
 test('text should be changed', () => {

@@ -1,5 +1,21 @@
-import {ActionTypes, DialogsPageType} from './store';
+import {ActionTypes} from './redux-store';
 
+
+export type DialogType = {
+    id: number
+    name: string
+}
+
+export type MessageType = {
+    id: number
+    message: string
+}
+
+export type InitialStateType = {
+    dialogs: Array<DialogType>
+    messages: Array<MessageType>
+    newMessageText: string
+}
 
 const initialState = {
     dialogs: [
@@ -20,7 +36,7 @@ const initialState = {
     newMessageText: ''
 }
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionTypes): DialogsPageType => {
+export const dialogsReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
     switch (action.type) {
         case 'CHANGE-NEW-MESSAGE-TEXT':
             state.newMessageText = action.newText
@@ -47,5 +63,3 @@ export const sendMessageAC = () => {
         type: 'SEND-MESSAGE'
     } as const
 }
-
-export default dialogsReducer

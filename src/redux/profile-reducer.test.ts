@@ -1,5 +1,5 @@
 import React from 'react'
-import profileReducer, {addPostAC, changeNewPostTextAC} from './profile-reducer';
+import {addPostAC, changeNewPostTextAC, profileReducer} from './profile-reducer';
 
 
 test('post must be sent', () => {

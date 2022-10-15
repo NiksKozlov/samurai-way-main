@@ -1,12 +1,11 @@
-import {ActionTypes, SidebarType} from './store'
+import {ActionTypes} from './redux-store';
 
+export type InitialStateType = {}
 
 const initialState = {}
 
-const sidebarReducer = (state: SidebarType = initialState, action: ActionTypes): SidebarType => {
+export const sidebarReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
 
 
     return state
 }
-
-export default  sidebarReducer
