@@ -1,16 +1,10 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {ActionTypes, PostType} from '../../../redux/store';
-import {addPostAC, changeNewPostTextAC} from '../../../redux/profile-reducer';
+import {MyPostsPropsType} from './MyPostsContainer';
 
 
-type MyPostsPropsType = {
-    posts: Array<PostType>
-    newPostText: string
-    changeNewPostText: (newText: string) => void
-    addPost: () => void
-}
+
 
 const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 

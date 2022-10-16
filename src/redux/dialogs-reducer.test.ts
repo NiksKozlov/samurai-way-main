@@ -25,6 +25,8 @@ test('text should be changed', () => {
     const endState = dialogsReducer(startState, changeNewMessageTextAC('a'))
 
     expect(endState.newMessageText).toBe('a')
+    expect(startState.newMessageText).toBe('')
+    expect(startState).not.toBe(endState)
 })
 
 test('message must be sent', () => {
@@ -49,7 +51,10 @@ test('message must be sent', () => {
 
     const endState = dialogsReducer(startState, sendMessageAC())
 
+    expect(startState).not.toBe(endState)
+    expect(startState.messages).not.toBe(endState.messages)
     expect(endState.newMessageText).toBe('')
+    expect(startState.messages.length).toBe(5)
     expect(endState.messages.length).toBe(6)
     expect(endState.messages[5].message).toBe('Hola all')
 })
