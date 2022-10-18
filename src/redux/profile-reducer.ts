@@ -12,13 +12,13 @@ export type InitialStateType = {
     newPostText: string
 }
 
-const initialState = {
-        posts: [
-            {id: 1, message: 'Hi! How are you?', likesCount: 15},
-            {id: 2, message: 'It\'s my first post!!!', likesCount: 20},
-        ],
-        newPostText: ''
-    }
+const initialState: InitialStateType = {
+    posts: [
+        {id: 1, message: 'Hi! How are you?', likesCount: 15},
+        {id: 2, message: 'It\'s my first post!!!', likesCount: 20},
+    ],
+    newPostText: ''
+}
 
 export const profileReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
     switch (action.type) {

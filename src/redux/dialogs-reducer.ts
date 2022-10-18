@@ -17,7 +17,7 @@ export type InitialStateType = {
     newMessageText: string
 }
 
-const initialState = {
+const initialState: InitialStateType = {
     dialogs: [
         {id: 1, name: 'Nikita'},
         {id: 2, name: 'Alina'},
@@ -39,7 +39,10 @@ const initialState = {
 export const dialogsReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
     switch (action.type) {
         case 'CHANGE-NEW-MESSAGE-TEXT':
-            return {...state, newMessageText: action.newText};
+            return {
+                ...state,
+                newMessageText: action.newText
+            }
         case 'SEND-MESSAGE':
             return {
                 ...state,

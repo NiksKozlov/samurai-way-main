@@ -25,7 +25,6 @@ test('text should be changed', () => {
     const endState = dialogsReducer(startState, changeNewMessageTextAC('a'))
 
     expect(endState.newMessageText).toBe('a')
-    expect(startState.newMessageText).toBe('')
     expect(startState).not.toBe(endState)
 })
 

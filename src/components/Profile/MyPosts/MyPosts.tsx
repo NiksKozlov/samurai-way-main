@@ -8,7 +8,7 @@ import {MyPostsPropsType} from './MyPostsContainer';
 
 const MyPosts: React.FC<MyPostsPropsType> = (props) => {
 
-    const postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    const postsElements = props.posts.map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 

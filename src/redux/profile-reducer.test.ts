@@ -16,7 +16,6 @@ test('post must be sent', () => {
 
     expect(startState).not.toBe(endState)
     expect(startState.posts).not.toBe(endState.posts)
-    expect(startState.newPostText).toBe('I ate a rat for breakfast today:)')
     expect(endState.newPostText).toBe('')
     expect(startState.posts.length).toBe(2)
     expect(endState.posts.length).toBe(3)
@@ -37,6 +36,5 @@ test('post text should be changed', () => {
 
 
     expect(startState).not.toBe(endState)
-    expect(startState.newPostText).toBe('I ate a rat for breakfast today:)')
     expect(endState.newPostText).toBe('I was kidding :D')
 })

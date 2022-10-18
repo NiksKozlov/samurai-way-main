@@ -7,10 +7,10 @@ import {DialogsPropsType} from './DialogsContainer';
 
 
 
-const Dialogs: React.FC<DialogsPropsType> = (props) => {
+export const Dialogs: React.FC<DialogsPropsType> = (props) => {
 
-    const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
-    const messagesElements = props.dialogsPage.messages.map(m => <Message message={m.message} />)
+    const dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id} />)
+    const messagesElements = props.dialogsPage.messages.map(m => <Message key={m.id} message={m.message} />)
     const newMessageText = props.dialogsPage.newMessageText
 
     const onSendMessageClick = () => {
@@ -44,5 +44,3 @@ const Dialogs: React.FC<DialogsPropsType> = (props) => {
         </div>
     )
 }
-
-export default Dialogs;
